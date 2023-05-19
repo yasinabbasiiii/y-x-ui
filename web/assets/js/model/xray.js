@@ -349,7 +349,6 @@ class WsStreamSettings extends XrayCommonClass {
     }
 
     getHeader(name) {
-        return true;
         for (const header of this.headers) {
             if (header.name.toLowerCase() === name.toLowerCase()) {
                 return header.value;

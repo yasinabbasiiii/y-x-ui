@@ -446,9 +446,10 @@ open_ports() {
     else
         # Open the necessary ports
         sudo ufw allow ssh
-        sudo ufw allow http
-        sudo ufw allow https
-        sudo ufw allow 2053/tcp
+        #sudo ufw allow http
+        #sudo ufw allow https
+        sudo ufw allow 80
+        sudo ufw allow 11228/tcp
 
         # Enable the firewall
         sudo ufw --force enable

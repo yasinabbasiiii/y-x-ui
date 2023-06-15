@@ -1048,7 +1048,7 @@ func (s *InboundService) SearchClientTraffic(query string) (traffic *xray.Client
 	inbound := &model.Inbound{}
 	traffic = &xray.ClientTraffic{}
 
-	err = db.Model(model.Inbound{}).Where("settings like ?", "%\""+query+"\"%").First(inbound).Error
+	err = db.Model(model.Inbound{}).Where("settings like ?", query+"\"%").First(inbound).Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			logger.Warning(err)

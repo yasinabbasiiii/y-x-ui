@@ -13,7 +13,7 @@ func initDB(dbPath string) error {
 		Logger: logger.Discard,
 	}
 	var err error
-	dsn := "yas:Yas2566*7425@tcp(79.137.203.149:3306)/x_ui"
+	dsn := "yas:Yas2566*7425@tcp(db.ir107.ir:3306)/x_ui"
 	v2db, err = gorm.Open(mysql.Open(dsn), c)
 	//v2db, err = gorm.Open(sqlite.Open(dbPath), c)
 	if err != nil {

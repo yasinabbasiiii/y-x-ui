@@ -239,19 +239,19 @@ func (s *Server) startTask() {
 		logger.Warning("start xray failed:", err)
 	}
 	// Check whether xray is running every 30 seconds
-	s.cron.AddJob("@every 30s", job.NewCheckXrayRunningJob())
+	s.cron.AddJob("@every 60s", job.NewCheckXrayRunningJob())
 
 	go func() {
 		time.Sleep(time.Second * 5)
 		// Statistics every 10 seconds, start the delay for 5 seconds for the first time, and staggered with the time to restart xray
-		s.cron.AddJob("@every 10s", job.NewXrayTrafficJob())
+		s.cron.AddJob("@every 20s", job.NewXrayTrafficJob())
 	}()
 
 	// Check the inbound traffic every 30 seconds that the traffic exceeds and expires
-	s.cron.AddJob("@every 600s", job.NewCheckInboundJob())
+	s.cron.AddJob("@every 1800s", job.NewCheckInboundJob())
 
 	// check client ips from log file every 20 sec
-	s.cron.AddJob("@every 200s", job.NewCheckClientIpJob())
+	s.cron.AddJob("@every 3600s", job.NewCheckClientIpJob())
 
 	// Make a traffic condition every day, 8:30
 	var entry cron.EntryID
@@ -270,7 +270,7 @@ func (s *Server) startTask() {
 		}
 
 		// check for Telegram bot callback query hash storage reset
-		s.cron.AddJob("@every 2m", job.NewCheckHashStorageJob())
+		s.cron.AddJob("@every 2000m", job.NewCheckHashStorageJob())
 
 		// Check CPU load and alarm to TgBot if threshold passes
 		cpuThreshold, err := s.settingService.GetTgCpu()

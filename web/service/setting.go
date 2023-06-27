@@ -154,7 +154,7 @@ func (s *SettingService) ResetSettings() error {
 func (s *SettingService) getSetting(key string) (*model.Setting, error) {
 	db := database.GetDB()
 	setting := &model.Setting{}
-	err := db.Model(model.Setting{}).Where("key = ?", key).First(setting).Error
+	err := db.Model(model.Setting{}).Where("settings.key = ?", key).First(setting).Error //samyar
 	if err != nil {
 		return nil, err
 	}

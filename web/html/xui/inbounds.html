@@ -467,6 +467,7 @@
                         const newInbound = new DBInbound(inbound);
                         
                         const inboundSettings = JSON.parse(inbound.settings);
+                        console.log(inboundSettings);
                        
                         if (this.clientCount[inbound.id] && this.clientCount[inbound.id].hasOwnProperty(this.filterBy)){
                             console.log(this.clientCount[inbound.id]);

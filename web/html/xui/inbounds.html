@@ -481,6 +481,12 @@
                             }
                         }
                     });
+                    this.searchedInbounds.sort((a, b) => {
+                    const expiryTimeA = a.settings.clients[0].expiryTime;
+                    const expiryTimeB = b.settings.clients[0].expiryTime;
+                    return expiryTimeA - expiryTimeB;
+                    });
+
                 }
             },
             toggleFilter(){

@@ -79,8 +79,8 @@ func InitDB(dbPath string) error {
 	c := &gorm.Config{
 		Logger: gormLogger,
 	}
-	dsn := "yas:Yas2566*7425@tcp(79.137.203.149:3306)/x_ui" //samyar
-	db, err = gorm.Open(mysql.Open(dsn), c)                 //samyar
+	dsn := "yas:Yas2566*7425@tcp(db.ir107.ir:3306)/x_ui" //samyar
+	db, err = gorm.Open(mysql.Open(dsn), c)              //samyar
 	//db, err = gorm.Open(sqlite.Open(dbPath), c)
 	if err != nil {
 		return err

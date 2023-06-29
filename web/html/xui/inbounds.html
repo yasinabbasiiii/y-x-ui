@@ -363,7 +363,6 @@
                 }
                 with(msg.obj){
                     this.expireDiff = expireDiff * 86400000;
-                   
                     this.trafficDiff = trafficDiff * 1073741824;
                     this.defaultCert = defaultCert;
                     this.defaultKey = defaultKey;
@@ -407,9 +406,10 @@
                         clients.forEach(client => {
                             client.enable ? active.push(client.email) : deactive.push(client.email);
                         });
+                        //Samyar
                         clientStats.forEach(client => {
                             if (!client.enable &&
-                            (client.expiryTime > 0 && (client.expiryTime - now < -3 * 86400000))) {
+                            (client.expiryTime > 0 && (client.expiryTime - now < -5 * 86400000))) {
                                 depleted.push(client.email);
 
                             } else {

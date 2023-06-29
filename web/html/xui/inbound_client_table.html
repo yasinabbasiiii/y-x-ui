@@ -1,12 +1,8 @@
 {{define "client_table"}}
 <template slot="actions" slot-scope="text, client, index">
     <a-tooltip>
-        <template slot="title">{{ i18n "qrCode" }}</template>
-        <a-icon style="font-size: 24px;" type="qrcode" v-if="record.hasLink()" @click="showQrcode(record,index);"></a-icon>
-    </a-tooltip>
-    <a-tooltip>
         <template slot="title">{{ i18n "pages.client.edit" }}</template>
-        <a-icon style="font-size: 28px;" type="edit" @click="openEditClient(record.id,client);"></a-icon>
+        <a-icon style="font-size: 30px;" type="edit" @click="openEditClient(record.id,client);"></a-icon>
     </a-tooltip>
     <a-tooltip>
         <template slot="title">{{ i18n "info" }}</template>

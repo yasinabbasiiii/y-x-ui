@@ -375,7 +375,7 @@
                         tls: subTLS
                     };
                 }
-                console.log(expireDiff);
+                console.log(this.expireDiff);
             },
             setInbounds(dbInbounds) {
                 this.inbounds.splice(0);
@@ -503,9 +503,7 @@
             },
             clickAction(action, dbInbound) {
                 switch (action.key) {
-                    case "qrcode":
-                        this.showQrcode(dbInbound);
-                        break;
+                  
                     case "showInfo":
                         this.showInfo(dbInbound);
                         break;
@@ -773,10 +771,7 @@
                 }
                 return newDbInbound;
             },
-            showQrcode(dbInbound, clientIndex) {
-                newDbInbound = this.checkFallback(dbInbound);
-                qrModal.show('{{ i18n "qrCode"}}', newDbInbound, clientIndex);
-            },
+            
             showInfo(dbInbound, index) {
                 newDbInbound = this.checkFallback(dbInbound);
                 infoModal.show(newDbInbound, index);
@@ -963,7 +958,7 @@
 
 {{template "inboundModal"}}
 {{template "promptModal"}}
-{{template "qrcodeModal"}}
+
 {{template "textModal"}}
 {{template "inboundInfoModal"}}
 {{template "clientsModal"}}

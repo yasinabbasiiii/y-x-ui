@@ -397,7 +397,7 @@
                 }
             },
             getClientCounts(dbInbound, inbound) {
-                let clientCount = 0, active = [], deactive = [], depleted = [], expiring = [];
+                let clientCount = 0, active = [], deactive = [], depleted = [], expiring = [], expired = [];
                 clients = this.getClients(dbInbound.protocol, inbound.settings);
                 clientStats = dbInbound.clientStats
                 now = new Date().getTime()

@@ -460,15 +460,13 @@
                 if (ObjectUtil.isEmpty(this.filterBy)) {
                     this.searchedInbounds = this.dbInbounds.slice();
                 } else {
-                   // console.log(2);
-                  //  console.log(this.filterBy);
                     this.searchedInbounds.splice(0, this.searchedInbounds.length);
                     this.dbInbounds.forEach(inbound => {
                         const newInbound = new DBInbound(inbound);
                         const inboundSettings = JSON.parse(inbound.settings);
-                       // console.log(inboundSettings);
                         if (this.clientCount[inbound.id] && this.clientCount[inbound.id].hasOwnProperty(this.filterBy)){
                             const list = this.clientCount[inbound.id][this.filterBy];
+                            console.log(list);
                             if (list.length > 0) {
                                 const filteredSettings = { "clients": [] };
                                 inboundSettings.clients.forEach(client => {
@@ -476,12 +474,10 @@
                                         filteredSettings.clients.push(client);
                                     }
                                 });
-                                console.log(filteredSettings);
-                                 // Sort filteredSettings.clients by expiryTime
+                                 // Sort filteredSettings.clients by expiryTime  Samyar
                                 filteredSettings.clients.sort((a, b) => {
-                                return a.expiryTime - b.expiryTime;
+                                    return a.expiryTime - b.expiryTime;
                                 });
-                                console.log(filteredSettings);
                                 newInbound.settings = Inbound.Settings.fromJson(inbound.protocol, filteredSettings);
                                
                                 this.searchedInbounds.push(newInbound);

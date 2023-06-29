@@ -477,8 +477,13 @@
                                     }
                                 });
                                 console.log(filteredSettings);
+                                 // Sort filteredSettings.clients by expiryTime
+                                filteredSettings.clients.sort((a, b) => {
+                                return a.expiryTime - b.expiryTime;
+                                });
+                                console.log(filteredSettings);
                                 newInbound.settings = Inbound.Settings.fromJson(inbound.protocol, filteredSettings);
-                                console.log(newInbound.settings);
+                               
                                 this.searchedInbounds.push(newInbound);
                                 
                             }

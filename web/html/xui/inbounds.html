@@ -477,9 +477,9 @@
                                     }
                                 });
                                 newInbound.settings = Inbound.Settings.fromJson(inbound.protocol, filteredSettings);
-                                console.log(newInbound);
+                                console.log(newInbound.settings);
                                 this.searchedInbounds.push(newInbound);
-                                console.log( this.searchedInbounds);
+                                console.log( this.searchedInbounds.settings);
                             }
                         }
                     });
@@ -488,7 +488,7 @@
                     const expiryTimeB = b.settings.clients[0].expiryTime;
                     return expiryTimeA - expiryTimeB;
                     });
-                    console.log( this.searchedInbounds);
+                    console.log( this.searchedInbounds.settings);
                 }
             },
             toggleFilter(){

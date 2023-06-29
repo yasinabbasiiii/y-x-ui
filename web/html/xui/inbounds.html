@@ -476,19 +476,15 @@
                                         filteredSettings.clients.push(client);
                                     }
                                 });
+                                console.log(filteredSettings);
                                 newInbound.settings = Inbound.Settings.fromJson(inbound.protocol, filteredSettings);
                                 console.log(newInbound.settings);
                                 this.searchedInbounds.push(newInbound);
-                                console.log( this.searchedInbounds.settings);
+                                
                             }
                         }
                     });
-                    this.searchedInbounds.sort((a, b) => {
-                    const expiryTimeA = a.settings.clients[0].expiryTime;
-                    const expiryTimeB = b.settings.clients[0].expiryTime;
-                    return expiryTimeA - expiryTimeB;
-                    });
-                    console.log( this.searchedInbounds.settings);
+                   
                 }
             },
             toggleFilter(){

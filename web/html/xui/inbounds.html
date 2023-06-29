@@ -457,10 +457,12 @@
                     });
             },
             filterInbounds() {
+                console.log(this.filterBy);
                 if (ObjectUtil.isEmpty(this.filterBy)) {
                     this.searchedInbounds = this.dbInbounds.slice();
                 } else {
                     this.searchedInbounds.splice(0, this.searchedInbounds.length);
+                    console.log(inbound);
                     this.dbInbounds.forEach(inbound => {
                         const newInbound = new DBInbound(inbound);
                         const inboundSettings = JSON.parse(inbound.settings);

@@ -72,8 +72,13 @@ func (s *InboundService) getAllEmails() ([]string, error) {
 	err := db.Raw(`
 		SELECT JSON_EXTRACT(client.value, '$.email')
 		FROM inbounds,
-			JSON_EACH(JSON_EXTRACT(inbounds.settings, '$.clients')) AS client
-		`).Scan(&emails).Error
+			JSON_TABLE(
+				JSON_EXTRACT(inbounds.settings, '$.clients'),
+				'$[*]' COLUMNS (
+					value JSON PATH '$'
+				)
+			) AS client;
+			`).Scan(&emails).Error //Samyar
 
 	if err != nil {
 		return nil, err
@@ -781,13 +786,18 @@ func (s *InboundService) DisableInvalidClients() (bool, int64, error) {
 func (s *InboundService) MigrationRemoveOrphanedTraffics() {
 	db := database.GetDB()
 	db.Exec(`
-		DELETE FROM client_traffics
-		WHERE email NOT IN (
-			SELECT JSON_EXTRACT(client.value, '$.email')
-			FROM inbounds,
-				JSON_EACH(JSON_EXTRACT(inbounds.settings, '$.clients')) AS client
-		)
-	`)
+	DELETE FROM client_traffics
+	WHERE email NOT IN (
+		SELECT JSON_EXTRACT(client.value, '$.email')
+		FROM inbounds,
+			JSON_TABLE(
+				JSON_EXTRACT(inbounds.settings, '$.clients'),
+				'$[*]' COLUMNS (
+					value JSON PATH '$'
+				)
+			) AS client
+	);
+	`) //Samyar
 }
 
 func (s *InboundService) AddClientStat(tx *gorm.DB, inboundId int, client *model.Client) error {

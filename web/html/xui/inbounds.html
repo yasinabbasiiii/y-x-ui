@@ -363,7 +363,7 @@
                 }
                 with(msg.obj){
                     this.expireDiff = expireDiff * 86400000;
-                    this.expireDiff = -5 * 86400000;
+                  
                     this.trafficDiff = trafficDiff * 1073741824;
                     this.defaultCert = defaultCert;
                     this.defaultKey = defaultKey;
@@ -376,7 +376,7 @@
                         tls: subTLS
                     };
                 }
-                console.log(this.expireDiff);
+               
             },
             setInbounds(dbInbounds) {
                 this.inbounds.splice(0);
@@ -416,6 +416,8 @@
                             }
                         });
                     } else {
+                        console.log(1);
+            
                         clients.forEach(client => {
                             deactive.push(client.email);
                         });
@@ -458,6 +460,8 @@
                 if (ObjectUtil.isEmpty(this.filterBy)) {
                     this.searchedInbounds = this.dbInbounds.slice();
                 } else {
+                    console.log(2);
+                    console.log(this.filterBy);
                     this.searchedInbounds.splice(0, this.searchedInbounds.length);
                     this.dbInbounds.forEach(inbound => {
                         const newInbound = new DBInbound(inbound);

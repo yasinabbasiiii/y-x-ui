@@ -100,6 +100,7 @@
                         <a-radio-group v-if="enableFilter" v-model="filterBy" @change="filterInbounds" button-style="solid">
                             <a-radio-button value="">{{ i18n "none" }}</a-radio-button>
                             <a-radio-button value="deactive">{{ i18n "disabled" }}</a-radio-button>
+                            <a-radio-button value="expired">{{ i18n "expired" }}</a-radio-button>
                             <a-radio-button value="depleted">{{ i18n "depleted" }}</a-radio-button>
                             <a-radio-button value="expiring">{{ i18n "depletingSoon" }}</a-radio-button>
                         </a-radio-group>
@@ -408,9 +409,10 @@
                         });
                         //Samyar
                         clientStats.forEach(client => {
-                            if (!client.enable 
-                           // && (client.expiryTime > 0 && (client.expiryTime - now < -5 * 86400000))
-                            ) {
+                            if (!client.enable && (client.expiryTime > 0 && (client.expiryTime - now < -5 * 86400000)) ) {
+                                expired.push(client.email);
+                            } 
+                            if (!client.enable ) {
                                 depleted.push(client.email);
 
                             } 
@@ -432,6 +434,7 @@
                     deactive: deactive,
                     depleted: depleted,
                     expiring: expiring,
+                    expired : expired,
                 };
             },
             searchInbounds(key) { //samyar

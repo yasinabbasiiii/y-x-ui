@@ -37,6 +37,7 @@
 "enabled" = "Enabled"
 "disabled" = "Disabled"
 "depleted" = "Depleted"
+"expired" = "Expired"
 "depletingSoon" = "Depleting soon"
 "domainName" = "Domain name"
 "monitor" = "Listening IP"

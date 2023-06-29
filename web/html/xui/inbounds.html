@@ -460,13 +460,13 @@
                 if (ObjectUtil.isEmpty(this.filterBy)) {
                     this.searchedInbounds = this.dbInbounds.slice();
                 } else {
-                    console.log(2);
-                    console.log(this.filterBy);
+                   // console.log(2);
+                  //  console.log(this.filterBy);
                     this.searchedInbounds.splice(0, this.searchedInbounds.length);
                     this.dbInbounds.forEach(inbound => {
                         const newInbound = new DBInbound(inbound);
                         const inboundSettings = JSON.parse(inbound.settings);
-                        console.log(inboundSettings);
+                       // console.log(inboundSettings);
                         if (this.clientCount[inbound.id] && this.clientCount[inbound.id].hasOwnProperty(this.filterBy)){
                             const list = this.clientCount[inbound.id][this.filterBy];
                             if (list.length > 0) {
@@ -477,7 +477,9 @@
                                     }
                                 });
                                 newInbound.settings = Inbound.Settings.fromJson(inbound.protocol, filteredSettings);
+                                console.log(newInbound);
                                 this.searchedInbounds.push(newInbound);
+                                console.log( this.searchedInbounds);
                             }
                         }
                     });
@@ -486,7 +488,7 @@
                     const expiryTimeB = b.settings.clients[0].expiryTime;
                     return expiryTimeA - expiryTimeB;
                     });
-
+                    console.log( this.searchedInbounds);
                 }
             },
             toggleFilter(){

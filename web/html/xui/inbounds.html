@@ -170,51 +170,12 @@
                                     <a-tag style="margin:0;" v-if="dbInbound.toInbound().stream.isReality" color="cyan">Reality</a-tag>
                                 </template>
                             </template>
-                            <template slot="clients" slot-scope="text, dbInbound">
-                                <template v-if="clientCount[dbInbound.id]">
-                                    <a-tag style="margin:0;" color="green">[[ clientCount[dbInbound.id].clients ]]</a-tag>
-                                    <a-tag style="margin:0; padding: 0 2px;" v-if="clientCount[dbInbound.id].deactive.length">[[ clientCount[dbInbound.id].deactive.length ]]</a-tag>
-                                    <a-tag style="margin:0; padding: 0 2px;" color="red" v-if="clientCount[dbInbound.id].depleted.length">[[ clientCount[dbInbound.id].depleted.length ]]</a-tag>
-                                    <a-tag style="margin:0; padding: 0 2px;" color="orange" v-if="clientCount[dbInbound.id].expiring.length">[[ clientCount[dbInbound.id].expiring.length ]]</a-tag>
-                                </template>
-                            </template>
-                            <template slot="traffic" slot-scope="text, dbInbound">
-                                <a-popover :overlay-class-name="themeSwitcher.darkClass">
-                                    <template slot="content">
-                                        <table cellpadding="2" width="100%">
-                                            <tr>
-                                                <td>↑[[ sizeFormat(dbInbound.up) ]]</td>
-                                                <td>↓[[ sizeFormat(dbInbound.down) ]]</td>
-                                            </tr>
-                                            <tr v-if="dbInbound.total > 0 &&  dbInbound.up + dbInbound.down < dbInbound.total">
-                                                <td>{{ i18n "remained" }}</td>
-                                                <td>[[ sizeFormat(dbInbound.total - dbInbound.up - dbInbound.down) ]]</td>
-                                            </tr>
-                                        </table>
-                                    </template>
-                                    <a-tag :color="dbInbound.total == 0 ? 'green' : dbInbound.up + dbInbound.down < dbInbound.total ? 'cyan' : 'red'">
-                                        [[ sizeFormat(dbInbound.up + dbInbound.down) ]] /
-                                        <template v-if="dbInbound.total > 0">
-                                            [[ sizeFormat(dbInbound.total) ]]
-                                        </template>
-                                        <template v-else>♾</template>
-                                    </a-tag>
-                                </a-popover>
-                            </template>
+                           
+                           
                             <template slot="enable" slot-scope="text, dbInbound">
                                 <a-switch v-model="dbInbound.enable" @change="switchEnable(dbInbound.id)"></a-switch>
                             </template>
-                            <template slot="expiryTime" slot-scope="text, dbInbound">
-                                <template v-if="dbInbound.expiryTime > 0">
-                                    <a-tag v-if="dbInbound.isExpiry" color="red">
-                                        [[ DateUtil.formatMillis(dbInbound.expiryTime) ]]
-                                    </a-tag>
-                                    <a-tag v-else color="blue">
-                                        [[ DateUtil.formatMillis(dbInbound.expiryTime) ]]
-                                    </a-tag>
-                                </template>
-                                <a-tag v-else color="green">{{ i18n "indefinite" }}</a-tag>
-                            </template>
+                           
                             <template slot="expandedRowRender" slot-scope="record">
                                 <a-table
                                 v-if="(record.protocol === Protocols.VLESS) || (record.protocol === Protocols.VMESS)"
@@ -438,6 +399,7 @@
                 };
             },
             searchInbounds(key) { //samyar
+                console.log(key);
                 if(key === ""){
                         key="1000"
                 }

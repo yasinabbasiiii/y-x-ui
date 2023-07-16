@@ -141,7 +141,8 @@
     </a-form-item>
     <br>
     <a-form-item label='{{ i18n "pages.client.expireDays" }}' v-if="clientModal.delayedStart">
-        <a-input-number v-model="delayedExpireDays" :min="0" type="number"></a-input-number>
+       <!-- <a-input-number v-model="delayedExpireDays" :min="0" type="number"></a-input-number>-->
+        <a-input v-model="delayedExpireDays" :min="0" type="number"></a-input>
     </a-form-item>
     <a-form-item v-else>
         <span slot="label">

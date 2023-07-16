@@ -5,9 +5,9 @@
             Account is (Expired|Traffic Ended) And Disabled
         </a-tag>
     </template>
-    <a-form-item label='{{ i18n "pages.inbounds.enable" }}'>
+   <!-- <a-form-item label='{{ i18n "pages.inbounds.enable" }}'>
         <a-switch v-model="client.enable"></a-switch>
-    </a-form-item>
+    </a-form-item>-->
     <br>
     <a-form-item>
         <span slot="label">
@@ -118,7 +118,8 @@
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
         </span>
-        <a-input-number v-model="client._totalGB" :min="0" type="number"></a-input-number>
+       <!-- <a-input-number v-model="client._totalGB" :min="0" type="number"></a-input-number>-->
+       <a-input  v-model="client._totalGB" :min="0" type="number"></a-input>
         <template v-if="isEdit && clientStats">
             <br>
             <span> {{ i18n "usage" }}:</span>
@@ -130,7 +131,7 @@
             <a-tooltip>
                 <template slot="title">{{ i18n "pages.inbounds.resetTraffic" }}</template>
                 <a-icon type="retweet" @click="resetClientTraffic(client.email,clientStats.inboundId,$event.target)"
-                        v-if="client.email.length > 0" style="font-size: 34px;" ></a-icon>
+                        v-if="client.email.length > 0" style="font-size: 30px;" ></a-icon>
             </a-tooltip>
         </template>        
     </a-form-item>

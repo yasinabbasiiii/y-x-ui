@@ -399,7 +399,7 @@
                 };
             },
             searchInbounds(key) { //samyar
-                console.log(key);
+                //console.log(key);
                 if(key === ""){
                         key="1000"
                 }
@@ -425,7 +425,7 @@
                     });
             },
             filterInbounds() {
-                console.log(this.filterBy);
+                //console.log(this.filterBy);
                 if (ObjectUtil.isEmpty(this.filterBy)) {
                     this.searchedInbounds = this.dbInbounds.slice();
                 } else {
@@ -435,13 +435,13 @@
                         const newInbound = new DBInbound(inbound);
                         
                         const inboundSettings = JSON.parse(inbound.settings);
-                        console.log(inboundSettings);
+                        //console.log(inboundSettings);
                        
                         if (this.clientCount[inbound.id] && this.clientCount[inbound.id].hasOwnProperty(this.filterBy)){
-                            console.log(this.clientCount[inbound.id]);
-                        console.log(this.clientCount[inbound.id].hasOwnProperty(this.filterBy));
+                            //console.log(this.clientCount[inbound.id]);
+                      //  console.log(this.clientCount[inbound.id].hasOwnProperty(this.filterBy));
                             const list = this.clientCount[inbound.id][this.filterBy];
-                            console.log(list);
+                           // console.log(list);
                             if (list.length > 0) {
                                 const filteredSettings = { "clients": [] };
                                 inboundSettings.clients.forEach(client => {

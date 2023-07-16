@@ -113,7 +113,7 @@
                 return usageColor(clientStats.up + clientStats.down, app.trafficDiff, this.client.totalGB);
             },
             get delayedExpireDays() {
-                return this.client && this.client.expiryTime < 0 ? this.client.expiryTime / -86400000 : 0;
+                return this.client && this.client.expiryTime < 0 ? this.client.expiryTime / -86400000 : 31;
             },
             set delayedExpireDays(days) {
                 this.client.expiryTime = -86400000 * days;

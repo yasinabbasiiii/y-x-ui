@@ -15,9 +15,8 @@ require (
 	github.com/shirou/gopsutil/v3 v3.23.5
 	github.com/xtls/xray-core v1.8.3
 	go.uber.org/atomic v1.11.0
-	golang.org/x/text v0.10.0
-	google.golang.org/grpc v1.56.1
-	gorm.io/driver/sqlite v1.5.2
+	golang.org/x/text v0.11.0
+	google.golang.org/grpc v1.58.0
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55
 )
 
@@ -49,7 +48,6 @@ require (
 	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/lufia/plan9stats v0.0.0-20230326075908-cb1d2100619a // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
-	github.com/mattn/go-sqlite3 v1.14.17 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pires/go-proxyproto v0.7.0 // indirect
@@ -70,11 +68,11 @@ require (
 	github.com/xtls/reality v0.0.0-20230613075828-e07c3b04b983 // indirect
 	github.com/yusufpapurcu/wmi v1.2.3 // indirect
 	golang.org/x/arch v0.3.0 // indirect
-	golang.org/x/crypto v0.10.0 // indirect
-	golang.org/x/net v0.11.0 // indirect
-	golang.org/x/sys v0.9.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20230530153820-e85fd2cbaebc // indirect
-	google.golang.org/protobuf v1.30.0 // indirect
+	golang.org/x/crypto v0.11.0 // indirect
+	golang.org/x/net v0.12.0 // indirect
+	golang.org/x/sys v0.10.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20230711160842-782d3b101e98 // indirect
+	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/mysql v1.5.1
 )

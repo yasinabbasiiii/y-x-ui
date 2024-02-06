@@ -17,8 +17,7 @@ require (
 	go.uber.org/atomic v1.11.0
 	golang.org/x/text v0.10.0
 	google.golang.org/grpc v1.56.1
-	gorm.io/driver/sqlite v1.5.2
-	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55
+	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 )
 
 require github.com/go-sql-driver/mysql v1.7.0 // indirect
@@ -49,7 +48,6 @@ require (
 	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/lufia/plan9stats v0.0.0-20230326075908-cb1d2100619a // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
-	github.com/mattn/go-sqlite3 v1.14.17 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pires/go-proxyproto v0.7.0 // indirect
@@ -76,5 +74,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230530153820-e85fd2cbaebc // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/driver/mysql v1.5.1
+	gorm.io/driver/mysql v1.5.3
 )
